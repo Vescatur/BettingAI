@@ -6,6 +6,7 @@ function VoegStrategieToe($PlayerID,$StrategieID){
     $Strategieen[Count($Strategieen)] = $PlayerID."_".$StrategieID;    
 } 
 
+
 include 'Strategie7.php';
 include 'Strategie6.php';
 include 'StrategieVoorbeeld.php';
