@@ -1,8 +1,6 @@
 <?php
 
-function IsAlive6_2() {
-    return true;
-}
+VoegStrategieToe(6,2);
 
 /*
  * Dit is als je als de eerste speler speelt. 
@@ -16,13 +14,13 @@ function IsAlive6_2() {
 
 function SpelerEenBeurtEen6_2($RandomGetal,$Hand) {
     if($Hand >= 4) {
-        if($Hand-(($RandomGetal-5)/2)>=1){
-            return $Hand-(($RandomGetal-5)/2);
+        if($Hand+(($RandomGetal-5)/2)>=1 && $Hand+(($RandomGetal-5)/2)<=10){
+            return $Hand+(($RandomGetal-5)/2);
         }else {
             return $Hand;
         }
     }else {
-        return 0;
+        return -1;
     }
 }
 
@@ -33,9 +31,8 @@ function SpelerEenBeurtEen6_2($RandomGetal,$Hand) {
  * $Hand is een getal van 1 tot en met 10
  * $InzetSpelerEen is de inzet van speler een.
  * 
- * return -1 om te stoppen.                                                                 Je verliest hier niks
- * return 0 om gelijk te blijven                                                            Je kan je inzet verliezen
- * return 1 tot en met 10 om te verhogen. Dit is direct het aantal waarmee je verhoogt.     Je kan je inzet verliezen
+ * return -1 om te stoppen.                                                                 Je verliest hier niks                                                         Je kan je inzet verliezen
+ * return 0 tot en met 10 om te verhogen. Dit is direct het aantal waarmee je verhoogt.     Je kan je inzet verliezen
  */
 
 
@@ -43,7 +40,7 @@ function SpelerTweeBeurtEen6_2($RandomGetal,$Hand,$InzetSpelerEen) {
     if($Hand >= $InzetSpelerEen) {
         return $RandomGetal;
     }else {
-        return 0;
+        return -1;
     }
 }
 
