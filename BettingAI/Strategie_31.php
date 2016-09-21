@@ -71,7 +71,7 @@ function SpelerEenBeurtEen31_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
 
 
 function SpelerTweeBeurtEen31_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
-    if($Hand >= $InzetSpelerEenBeurtNul) {
+    if($Hand+2 >= $InzetSpelerEenBeurtNul) {
         return $RandomGetal;
     }else {
         return -1;
