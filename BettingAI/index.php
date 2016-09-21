@@ -7,18 +7,21 @@ function VoegStrategieToe($PlayerID,$StrategieID){
 } 
 
 
-//include 'Strategie7.php';
-include 'Strategie6.php';
+//include 'Strategie_7.php';
+include 'Strategie_6.php';
+include 'Strategie_31.php';
 //include 'StrategieVoorbeeld.php';
 
 function Start(){
     global $Strategieen;
     //$score[een][twee]
     $score = array();
+    $scoreR = array();
     for($i = 0; $i<Count($Strategieen);$i++){
         $score[$i] = array();
         for($o = 0; $o<Count($Strategieen);$o++){
             $score[$i][$o] = 0;
+            $scoreR[$i][$o] = 0;
             print("a");
         }
     }
@@ -32,7 +35,17 @@ function Start(){
                 for($Random2 =1;$Random2<=10;$Random2++){
                     for($Hand1 =1;$Hand1<=10;$Hand1++){
                         for($Hand2 =1;$Hand2<=10;$Hand2++){
-                            $score[$Strategie1][$Strategie2] += Battle($Strategieen[$Strategie1],$Strategieen[$Strategie2],$Random1,$Random2,$Hand1,$Hand2);
+                            $ScoreBattle = Battle($Strategieen[$Strategie1],$Strategieen[$Strategie2],$Random1,$Random2,$Hand1,$Hand2);
+                            if(!($ScoreBattle == 0)) {
+                                if(gettype($ScoreBattle)== "array"){
+                                    $score[$Strategie1][$Strategie2] +=$ScoreBattle[0];
+                                    $scoreR[$Strategie1][$Strategie2] +=$ScoreBattle[0];               
+                                }else {
+                                    $score[$Strategie1][$Strategie2] +=$ScoreBattle;
+                                    $scoreR[$Strategie1][$Strategie2] -=$ScoreBattle;
+                                }
+                            }
+                            
                         }           
                     }            
                 }           
@@ -111,7 +124,8 @@ function Battle($StrategieNaam1,$StrategieNaam2,$Random1,$Random2,$Hand1,$Hand2)
     }
     
     if($Hand1==$Hand2) {
-        return 0;
+        //return 0;
+        return array(($ReturnMove1+$ReturnMove2+$ReturnMove3+$ReturnMove4));
     }elseif ($Hand1>$Hand2) {
         return ($ReturnMove1+$ReturnMove2+$ReturnMove3+$ReturnMove4);
     }else{
