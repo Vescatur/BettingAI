@@ -120,7 +120,7 @@ function SpelerTweeBeurtNul6_3($RandomGetal,$InzetSpelerEenBeurtNul) {
 }
 
 function SpelerEenBeurtEen6_3($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
-    if($Hand >= 4) {
+    if($Hand >= 6) {
         if($Hand+(($RandomGetal-5)/2)>=1 && $Hand+(($RandomGetal-5)/2)<=10){
             return $Hand+(($RandomGetal-5)/2);
         }else {

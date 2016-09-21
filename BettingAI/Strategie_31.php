@@ -42,7 +42,7 @@ function SpelerTweeBeurtNul31_1($RandomGetal,$InzetSpelerEenBeurtNul) {
  * $RandomGetal is een random getal van 1 tot en met 10
  * $Hand is een getal van 1 tot en met 10
  * 
- * return -1 om te stoppen                                                                Je verliest dan je inzet
+ * return -1 om te stoppen                                                           Je verliest dan je inzet
  * return 0 tot en met 10 om te verhogen. Dit is het aantal waarmee je verhoogt.     Je kan je inzet verliezen
  */
 
