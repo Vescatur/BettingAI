@@ -8,6 +8,7 @@ for ($number = 1; $number < 11; $number++)
 
 
 
+
 /* NOG NIKS */
 
 function IsAlive6_2()
@@ -41,16 +42,17 @@ function SpelerEenBeurtEen7_1($RandomGetal, $Hand)
     if ($Hand == 1)
     {
         return 0;
-    } else
+    } 
+    else
     {
         $RandomGetal = -2 + ceil(($RandomGetal / 10) * 4);
         
-        if ($RandomGetal + ceil(pow($Hand, 2) * 0.1) <= 10 &&
-            $RandomGetal + ceil(pow($Hand, 2) * 0.1) >= 3
-        )
+        if ($RandomGetal + ceil(pow($Hand, 2) * 0.1) <= 10 && $RandomGetal + ceil(pow($Hand, 2) * 0.1) >= 3)
         {
             return ceil(pow($Hand, 2) * 0.1) + $RandomGetal;
-        }else{
+        }
+        else
+        {
             return ceil(pow($Hand, 2) * 0.1);
         }
         
