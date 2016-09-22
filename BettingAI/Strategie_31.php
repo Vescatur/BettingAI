@@ -1,6 +1,6 @@
 <?php
 
-VoegStrategieToe(6,1);
+VoegStrategieToe(31,1);
 
 /*
  * Dit is als je als de eerste speler speelt. 
@@ -11,7 +11,7 @@ VoegStrategieToe(6,1);
  * return een getal van 5 tot en met 10 om door te gaan. Dit is je inzet.       Je hebt kans om je inzet te verliezen
  */
 
-function SpelerEenBeurtNul6_1($RandomGetal) {
+function SpelerEenBeurtNul31_1($RandomGetal) {
     if($RandomGetal == 5) {
         return -1;
     }else{
@@ -28,7 +28,7 @@ function SpelerEenBeurtNul6_1($RandomGetal) {
  * return 0 tot en met 10 om te verhogen. Dit is het aantal waarmee je verhoogt.     Je kan je inzet verliezen
  */
 
-function SpelerTweeBeurtNul6_1($RandomGetal,$InzetSpelerEenBeurtNul) {
+function SpelerTweeBeurtNul31_1($RandomGetal,$InzetSpelerEenBeurtNul) {
     if($InzetSpelerEenBeurtNul == 10) {
         return -1;
     }else {
@@ -42,11 +42,11 @@ function SpelerTweeBeurtNul6_1($RandomGetal,$InzetSpelerEenBeurtNul) {
  * $RandomGetal is een random getal van 1 tot en met 10
  * $Hand is een getal van 1 tot en met 10
  * 
- * return -1 om te stoppen                                                                Je verliest dan je inzet
+ * return -1 om te stoppen                                                           Je verliest dan je inzet
  * return 0 tot en met 10 om te verhogen. Dit is het aantal waarmee je verhoogt.     Je kan je inzet verliezen
  */
 
-function SpelerEenBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
+function SpelerEenBeurtEen31_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
     if($Hand >= 4) {
         if($Hand+(($RandomGetal-5)/2)>=1 && $Hand+(($RandomGetal-5)/2)<=10){
             return $Hand+(($RandomGetal-5)/2);
@@ -70,8 +70,8 @@ function SpelerEenBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetS
  */
 
 
-function SpelerTweeBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
-    if($Hand >= $InzetSpelerEenBeurtNul) {
+function SpelerTweeBeurtEen31_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
+    if($Hand+2 >= $InzetSpelerEenBeurtNul) {
         return $RandomGetal;
     }else {
         return -1;
@@ -91,6 +91,6 @@ function SpelerTweeBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
  * return 0 om mee te gaan      Je hebt kans om je $InzetSpelerEen plus $InzetSpelerTwee te winnen of verliezen.
  */
 
-function SpelerEenBeurtTwee6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
+function SpelerEenBeurtTwee31_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
     return 0;
 } 

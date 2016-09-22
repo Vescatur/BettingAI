@@ -1,6 +1,6 @@
 <?php
 
-VoegStrategieToe(6,1);
+VoegStrategieToe(6,2);
 
 /*
  * Dit is als je als de eerste speler speelt. 
@@ -11,7 +11,7 @@ VoegStrategieToe(6,1);
  * return een getal van 5 tot en met 10 om door te gaan. Dit is je inzet.       Je hebt kans om je inzet te verliezen
  */
 
-function SpelerEenBeurtNul6_1($RandomGetal) {
+function SpelerEenBeurtNul6_2($RandomGetal) {
     if($RandomGetal == 5) {
         return -1;
     }else{
@@ -28,7 +28,7 @@ function SpelerEenBeurtNul6_1($RandomGetal) {
  * return 0 tot en met 10 om te verhogen. Dit is het aantal waarmee je verhoogt.     Je kan je inzet verliezen
  */
 
-function SpelerTweeBeurtNul6_1($RandomGetal,$InzetSpelerEenBeurtNul) {
+function SpelerTweeBeurtNul6_2($RandomGetal,$InzetSpelerEenBeurtNul) {
     if($InzetSpelerEenBeurtNul == 10) {
         return -1;
     }else {
@@ -46,7 +46,7 @@ function SpelerTweeBeurtNul6_1($RandomGetal,$InzetSpelerEenBeurtNul) {
  * return 0 tot en met 10 om te verhogen. Dit is het aantal waarmee je verhoogt.     Je kan je inzet verliezen
  */
 
-function SpelerEenBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
+function SpelerEenBeurtEen6_2($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
     if($Hand >= 4) {
         if($Hand+(($RandomGetal-5)/2)>=1 && $Hand+(($RandomGetal-5)/2)<=10){
             return $Hand+(($RandomGetal-5)/2);
@@ -70,9 +70,13 @@ function SpelerEenBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetS
  */
 
 
-function SpelerTweeBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
-    if($Hand >= $InzetSpelerEenBeurtNul) {
-        return $RandomGetal;
+function SpelerTweeBeurtEen6_2($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
+    if($Hand >= 4) {
+        if($Hand+(($RandomGetal-5)/2)>=1 && $Hand+(($RandomGetal-5)/2)<=10){
+            return $Hand+(($RandomGetal-5)/2);
+        }else {
+            return $Hand;
+        }
     }else {
         return -1;
     }
@@ -91,6 +95,54 @@ function SpelerTweeBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
  * return 0 om mee te gaan      Je hebt kans om je $InzetSpelerEen plus $InzetSpelerTwee te winnen of verliezen.
  */
 
-function SpelerEenBeurtTwee6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
+function SpelerEenBeurtTwee6_2($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
+    return 0;
+} 
+
+//----------------------------------------------------------------------------\\
+
+VoegStrategieToe(6,3);
+
+function SpelerEenBeurtNul6_3($RandomGetal) {
+    if($RandomGetal == 5) {
+        return -1;
+    }else{
+        return 5+($RandomGetal/2);
+    }
+}
+
+function SpelerTweeBeurtNul6_3($RandomGetal,$InzetSpelerEenBeurtNul) {
+    if($InzetSpelerEenBeurtNul == 10) {
+        return -1;
+    }else {
+       return 10-$InzetSpelerEenBeurtNul;      
+    }
+}
+
+function SpelerEenBeurtEen6_3($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
+    if($Hand >= 6) {
+        if($Hand+(($RandomGetal-5)/2)>=1 && $Hand+(($RandomGetal-5)/2)<=10){
+            return $Hand+(($RandomGetal-5)/2);
+        }else {
+            return $Hand;
+        }
+    }else {
+        return -1;
+    }
+}
+
+function SpelerTweeBeurtEen6_3($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
+    if($Hand >= 4) {
+        if($Hand+(($RandomGetal-5)/2)>=1 && $Hand+(($RandomGetal-5)/2)<=10){
+            return $Hand+(($RandomGetal-5)/2);
+        }else {
+            return $Hand;
+        }
+    }else {
+        return -1;
+    }
+}
+
+function SpelerEenBeurtTwee6_3($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
     return 0;
 } 
