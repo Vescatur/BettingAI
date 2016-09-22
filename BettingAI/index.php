@@ -12,9 +12,6 @@ function VoegStrategieToe($PlayerID, $StrategieID) {
 include 'Strategie_6.php';
 include 'Strategie_31.php';
 
-//include 'Strategie7.php';
-include 'Strategie6.php';
-include 'StrategieVoorbeeld.php';
 
 function Start() {
     global $Strategieen,$FactorChangePerRound;
