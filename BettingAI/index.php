@@ -1,5 +1,5 @@
 <?php
-
+$Mode = 1;
 $FactorChangePerRound = 1;
 $Strategieen = array();
 
@@ -14,6 +14,7 @@ include 'Strategie_31.php';
 
 
 function Start() {
+    global $Mode;
     global $Strategieen,$FactorChangePerRound;
     //$score[een][twee]
     $score = array();
@@ -54,7 +55,7 @@ function Start() {
     print("Druk x om te stoppen.\n");
     print("Druk 1 voor normale snelheid\n");
     print("Druk 2 voor 10x normale snelheid\n");
-    print("Druk 3 voor 50x normale snelheid\n");
+    print("Druk 3 voor 100x normale snelheid\n");
 
     $anwser = trim(fgets(STDIN));
     if ($anwser == "x") {
@@ -66,12 +67,14 @@ function Start() {
         } elseif ($anwser == "2") {
             $FactorChangePerRound = 10;
         } elseif ($anwser == "3") {
-            $FactorChangePerRound = 50;
-        }
+            $FactorChangePerRound = 100;
+        }elseif($anwser == "4"){
+                $FactorChangePerRound = 1000;
+            }
     }
 
     while($debounce){
-       
+        
         for ($u = 0; $u < $FactorChangePerRound; $u++) {
             $FactoredScore = GetFactoredScore($score, $ScoreFactor);
             $TotaleScore = GetTotaleScore($FactoredScore);
@@ -82,13 +85,21 @@ function Start() {
                 $ScoreFactor[$o] += ($TotaleScore[$o] / $max); // (($TotaleScore[$o]/$max)*$FactorChangePerRound);
             }
             $FactoredScore2 = GetFactoredScore($score, $ScoreFactor);
+            if($Mode == 1){
+                print(Iround($ScoreFactor[0]));
+                for($i = 1; $i < Count($ScoreFactor); $i++){
+                    print(",");
+                    print(Iround($ScoreFactor[$i]));  
+                }
+                print("\n");
+            }
         }
-
+        
         PrintCompleteScore($FactoredScore2,$ScoreFactor);        
         print("Druk x om te stoppen.\n");
         print("Druk 1 voor normale snelheid\n");
         print("Druk 2 voor 10x normale snelheid\n");
-        print("Druk 3 voor 50x normale snelheid\n");
+        print("Druk 3 voor 100x normale snelheid\n");
         
         $anwser = trim(fgets(STDIN));
         if($anwser == "x") {
@@ -100,7 +111,9 @@ function Start() {
             }elseif($anwser == "2"){
                 $FactorChangePerRound = 10;
             }elseif($anwser == "3"){
-                $FactorChangePerRound = 50;
+                $FactorChangePerRound = 100;
+            }elseif($anwser == "4"){
+                $FactorChangePerRound = 1000;
             }
         }
     }
@@ -280,7 +293,7 @@ function Battle($StrategieNaam1, $StrategieNaam2, $Random1, $Random2, $Hand1, $H
 
     if ($Hand1 == $Hand2) {
         //return 0;
-        return ($ReturnMove1 + $ReturnMove2 + $ReturnMove3 + $ReturnMove4);
+        return 0;
     } elseif ($Hand1 > $Hand2) {
         return ($ReturnMove1 + $ReturnMove2 + $ReturnMove3 + $ReturnMove4);
     } else {

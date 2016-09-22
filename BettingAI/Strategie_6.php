@@ -156,7 +156,7 @@ function SpelerEenBeurtNul6_4($RandomGetal) {
 }
 
 function SpelerTweeBeurtNul6_4($RandomGetal,$InzetSpelerEenBeurtNul) {
-    return 5;
+    return 1;
 }
 
 function SpelerEenBeurtEen6_4($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
@@ -177,4 +177,46 @@ function SpelerTweeBeurtEen6_4($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
 
 function SpelerEenBeurtTwee6_4($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
     return 0;
+} 
+
+//----------------------------------------------------------------------------\\
+
+VoegStrategieToe(6,5);
+
+function SpelerEenBeurtNul6_5($RandomGetal) {
+    return 5;
+}
+
+function SpelerTweeBeurtNul6_5($RandomGetal,$InzetSpelerEenBeurtNul) {
+    if($InzetSpelerEenBeurtNul == 5){
+        return 5;
+    }else{
+        return 1;
+    }
+}
+
+function SpelerEenBeurtEen6_5($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
+    if($InzetSpelerTweeBeurtNul == 1 && ($Hand > (($InzetSpelerEenBeurtNul+$InzetSpelerTweeBeurtNul)/2)) ){
+        return ($InzetSpelerEenBeurtNul+$InzetSpelerTweeBeurtNul);
+    }else {
+        return -1;
+    }
+}
+
+function SpelerTweeBeurtEen6_5($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
+    if($InzetSpelerEenBeurtNul == 5){
+        if($InzetSpelerEenBeurtEen < $Hand){
+            return 10;
+        }else{
+            return -1;
+        }
+    }
+}
+
+function SpelerEenBeurtTwee6_5($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen,$InzetSpelerTweeBeurtEen){
+    if($Hand>$InzetSpelerTweeBeurtEen){
+        return 0;    
+    }else {
+        return 0;
+    } 
 } 
