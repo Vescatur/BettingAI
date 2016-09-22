@@ -29,9 +29,9 @@ function Start() {
 
     $ScoreFactor = array();
     for ($o = 0; $o < Count($Strategieen); $o++) {
-        $ScoreFactor[$o] = 1.0;
+        $ScoreFactor[$o] = 1;
     }
-    
+     
     //Battle($Strategieen[0],$Strategieen[0],0,0,6,7);
 
     for ($Strategie1 = 0; $Strategie1 < Count($Strategieen); $Strategie1++) {
