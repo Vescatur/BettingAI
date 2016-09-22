@@ -12,7 +12,9 @@ function VoegStrategieToe($PlayerID, $StrategieID) {
 include 'Strategie_6.php';
 include 'Strategie_31.php';
 
-//include 'StrategieVoorbeeld.php';
+//include 'Strategie7.php';
+include 'Strategie6.php';
+include 'StrategieVoorbeeld.php';
 
 function Start() {
     global $Strategieen,$FactorChangePerRound;
@@ -50,9 +52,25 @@ function Start() {
             }
         }
     }
+    print_r($score);
+    $ScorePerStrategie = GenereerScorePerStrategie($score);
+    //for($i = 0; $i<Count($Strategien);$i++){
+    //    for($o = 0; $i<Count($Strategien);$i++){
+    //        $score[$i][$o] +=  Battle();
+    //    }
+    //}
+} 
 
-    PrintCompleteScore($score,$ScoreFactor);
-            
+function GenereerScorePerStrategie($score){
+    $StrategieScore = array();
+    for($i = 0; $i<Count($score);$i++){
+        for($o = 0; $o<Count($score[$i]);$o++){
+            $StrategieScore[$i] += $score[$i][$o];
+        }
+    }
+}
+
+function Battle($StrategieNaam1,$StrategieNaam2,$Random1,$Random2,$Hand1,$Hand2) {
 
     print("Druk x om te stoppen.\n");
     print("Druk 1 voor normale snelheid\n");
