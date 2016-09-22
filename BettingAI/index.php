@@ -70,7 +70,9 @@ function Start() {
             $FactorChangePerRound = 100;
         }elseif($anwser == "4"){
                 $FactorChangePerRound = 1000;
-            }
+        }elseif($anwser == "5"){
+                $FactorChangePerRound = 10000;
+        }
     }
 
     while($debounce){
@@ -86,10 +88,10 @@ function Start() {
             }
             $FactoredScore2 = GetFactoredScore($score, $ScoreFactor);
             if($Mode == 1){
-                print(Iround($ScoreFactor[0]));
+                print(Iround($ScoreFactor[0])*1000);
                 for($i = 1; $i < Count($ScoreFactor); $i++){
                     print(",");
-                    print(Iround($ScoreFactor[$i]));  
+                    print(Iround($ScoreFactor[$i])*1000);  
                 }
                 print("\n");
             }
