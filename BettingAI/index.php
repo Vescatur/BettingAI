@@ -1,6 +1,6 @@
 <?php
 
-$FactorChangePerRound = 0.3;
+$FactorChangePerRound = 1;
 $Strategieen = array();
 
 function VoegStrategieToe($PlayerID, $StrategieID) {
@@ -54,41 +54,58 @@ function Start() {
     PrintCompleteScore($score,$ScoreFactor);
             
 
-        print("Druk op y om door te gaan, x om te stoppen\n");
-        $anwser = trim(fgets(STDIN));
-        $debounce = !($anwser == "x");
-        
+    print("Druk x om te stoppen.\n");
+    print("Druk 1 voor normale snelheid\n");
+    print("Druk 2 voor 10x normale snelheid\n");
+    print("Druk 3 voor 50x normale snelheid\n");
+
+    $anwser = trim(fgets(STDIN));
+    if ($anwser == "x") {
+        $debounce = false;
+    } else {
+        $debounce = true;
+        if ($anwser == "1") {
+            $FactorChangePerRound = 1;
+        } elseif ($anwser == "2") {
+            $FactorChangePerRound = 10;
+        } elseif ($anwser == "3") {
+            $FactorChangePerRound = 50;
+        }
+    }
+
     while($debounce){
-        $max = 0;
-        
-        $FactoredScore = GetFactoredScore($score,$ScoreFactor);
-        print_r($FactoredScore);    
-        $TotaleScore = GetTotaleScore($FactoredScore);
-        print_r($TotaleScore);
-        for ($o = 0; $o < Count($TotaleScore); $o++) {
-            $max = max(max($TotaleScore),$max);
+       
+        for ($u = 0; $u < $FactorChangePerRound; $u++) {
+            $FactoredScore = GetFactoredScore($score, $ScoreFactor);
+            $TotaleScore = GetTotaleScore($FactoredScore);
+
+            $max = Count($TotaleScore) * 10000 * 40;
+
+            for ($o = 0; $o < Count($TotaleScore); $o++) {
+                $ScoreFactor[$o] += ($TotaleScore[$o] / $max); // (($TotaleScore[$o]/$max)*$FactorChangePerRound);
+            }
+            $FactoredScore2 = GetFactoredScore($score, $ScoreFactor);
         }
-        $min = 0;
-        for ($o = 0; $o < Count($TotaleScore); $o++) {
-            $min = min(min($TotaleScore),$min);
-        }
+
+        PrintCompleteScore($FactoredScore2,$ScoreFactor);        
+        print("Druk x om te stoppen.\n");
+        print("Druk 1 voor normale snelheid\n");
+        print("Druk 2 voor 10x normale snelheid\n");
+        print("Druk 3 voor 50x normale snelheid\n");
         
-        $max = max($max,-$min);
-        print($max);
-        
-        for ($o = 0; $o < Count($TotaleScore); $o++) {
-            $ScoreFactor[$o] += (($TotaleScore[$o]/$max)*$FactorChangePerRound);// (($TotaleScore[$o]/$max)*$FactorChangePerRound);
-            if($ScoreFactor[$o] >= 2) {
-                $ScoreFactor[$o] = 2;
-            }elseif($ScoreFactor[$o] <= 0.01){
-                $ScoreFactor[$o] == 0.01;   
+        $anwser = trim(fgets(STDIN));
+        if($anwser == "x") {
+            $debounce = false;
+        }else {
+            $debounce = true;
+            if($anwser == "1"){
+                $FactorChangePerRound = 1;
+            }elseif($anwser == "2"){
+                $FactorChangePerRound = 10;
+            }elseif($anwser == "3"){
+                $FactorChangePerRound = 50;
             }
         }
-        $FactoredScore2 = GetFactoredScore($score,$ScoreFactor);
-        PrintCompleteScore($FactoredScore2,$ScoreFactor);        
-        print("Druk op y om door te gaan, x om te stoppen\n");
-        $anwser = trim(fgets(STDIN));
-        $debounce = !($anwser == "x");
     }
 }
 
@@ -111,6 +128,10 @@ function PrintCompleteScore($score,$ScoreFactor){
     PrintScore($score,false);
     print("\nTotale van beide score\n");
     PrintTotaleScore($score,$ScoreFactor);
+}
+
+function Iround($value) {
+    return round($value*1000)/1000;
 }
 
 function GetTotaleScore($score){
@@ -139,9 +160,10 @@ function PrintTotaleScore($score,$ScoreFactor) {
                 $totale -= $score[$o][$i];
             }
             
-        printf($maskEinde, array_sum($score[$i]) + $totale);
+        printf($maskEinde,Iround( array_sum($score[$i]) + $totale));
         print("|");
-        printf($maskEinde, $ScoreFactor[$i]);
+        $maskEinde = "%7s";
+        printf($maskEinde, Iround($ScoreFactor[$i]));
         print("|\n");
     }
 }
@@ -165,22 +187,22 @@ function PrintScore($score,$Gelijk) {
         for ($o = 0; $o < Count($score[$i]); $o++) {
             print("|");
             if($Gelijk) {
-                printf($mask, $score[$i][$o]);
+                printf($mask, Iround($score[$i][$o]));
             }else{
-                printf($mask, -$score[$o][$i]);
+                printf($mask, Iround(-$score[$o][$i]));
             }  
         }
         print("|Totaal:");
         $maskEinde = "%7.7s";
         if($Gelijk) {
-            printf($maskEinde, array_sum($score[$i]));
+            printf($maskEinde, Iround(array_sum($score[$i])));
         }else {
             $totale = 0;
             for ($o = 0; $o < Count($score[$i]); $o++) {
                 $totale -= $score[$o][$i];
             }
             
-            printf($maskEinde, $totale);
+            printf($maskEinde, Iround($totale));
         }
         
         print("|\n");
