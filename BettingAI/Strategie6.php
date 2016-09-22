@@ -58,6 +58,10 @@ function SpelerTweeBeurtEen6_2($RandomGetal,$Hand,$InzetSpelerEen) {
  */
 
 function SpelerEenBeurtTwee6_2($RandomGetal,$Hand,$InzetSpelerEen,$InzetSpelerTwee){
-    return 0;
+    if($RandomGetal>=3) {
+         return 0;   
+    }else {
+        return -1;
+    }
 } 
 
