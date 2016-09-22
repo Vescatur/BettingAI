@@ -146,3 +146,35 @@ function SpelerTweeBeurtEen6_3($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
 function SpelerEenBeurtTwee6_3($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
     return 0;
 } 
+
+//----------------------------------------------------------------------------\\
+
+VoegStrategieToe(6,4);
+
+function SpelerEenBeurtNul6_4($RandomGetal) {
+    return 5;
+}
+
+function SpelerTweeBeurtNul6_4($RandomGetal,$InzetSpelerEenBeurtNul) {
+    return 5;
+}
+
+function SpelerEenBeurtEen6_4($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
+    if($Hand >= (($InzetSpelerEenBeurtNul+$InzetSpelerTweeBeurtNul)/2)){
+        return $Hand;
+    }else {
+        return -1;
+    }
+}
+
+function SpelerTweeBeurtEen6_4($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
+    if($Hand >= (($InzetSpelerEenBeurtNul+$InzetSpelerTweeBeurtNul+$InzetSpelerEenBeurtEen)/3)){
+        return $Hand;
+    }else {
+        return -1;
+    }
+}
+
+function SpelerEenBeurtTwee6_4($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
+    return 0;
+} 
