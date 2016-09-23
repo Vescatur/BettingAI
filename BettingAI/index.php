@@ -12,9 +12,6 @@ function VoegStrategieToe($PlayerID, $StrategieID) {
 include 'Strategie_6.php';
 include 'Strategie_31.php';
 
-//include 'Strategie7.php';
-include 'Strategie6.php';
-include 'StrategieVoorbeeld.php';
 
 function Start() {
     global $Strategieen,$FactorChangePerRound;
@@ -59,20 +56,8 @@ function Start() {
     //        $score[$i][$o] +=  Battle();
     //    }
     //}
-} 
-
-function GenereerScorePerStrategie($score){
-    $StrategieScore = array();
-    for($i = 0; $i<Count($score);$i++){
-        for($o = 0; $o<Count($score[$i]);$o++){
-            $StrategieScore[$i] += $score[$i][$o];
-        }
-    }
-}
-
-function Battle($StrategieNaam1,$StrategieNaam2,$Random1,$Random2,$Hand1,$Hand2) {
-
-        print("Druk op y om door te gaan, x om te stoppen\n");
+    
+            print("Druk op y om door te gaan, x om te stoppen\n");
         $anwser = trim(fgets(STDIN));
         $debounce = !($anwser == "x");
         
@@ -107,6 +92,16 @@ function Battle($StrategieNaam1,$StrategieNaam2,$Random1,$Random2,$Hand1,$Hand2)
         print("Druk op y om door te gaan, x om te stoppen\n");
         $anwser = trim(fgets(STDIN));
         $debounce = !($anwser == "x");
+    }
+} 
+
+function GenereerScorePerStrategie($score){
+    $StrategieScore = array();
+    for($i = 0; $i<Count($score);$i++){
+        $StrategieScore[$i] = 0;
+        for($o = 0; $o<Count($score[$i]);$o++){
+            $StrategieScore[$i] += $score[$i][$o];
+        }
     }
 }
 
@@ -268,8 +263,8 @@ function Battle($StrategieNaam1, $StrategieNaam2, $Random1, $Random2, $Hand1, $H
     }
 
     if ($Hand1 == $Hand2) {
-        //return 0;
-        return ($ReturnMove1 + $ReturnMove2 + $ReturnMove3 + $ReturnMove4);
+        return 0;
+        //return ($ReturnMove1 + $ReturnMove2 + $ReturnMove3 + $ReturnMove4);
     } elseif ($Hand1 > $Hand2) {
         return ($ReturnMove1 + $ReturnMove2 + $ReturnMove3 + $ReturnMove4);
     } else {
