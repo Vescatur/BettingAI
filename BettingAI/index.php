@@ -1,5 +1,6 @@
 <?php
-$Mode = 1;
+$Mode = 0;
+$RandomBonus = 0.01;
 $FactorChangePerRound = 1;
 $Strategieen = array();
 
@@ -14,7 +15,7 @@ include 'Strategie_31.php';
 
 
 function Start() {
-    global $Mode;
+    global $Mode,$RandomBonus;
     global $Strategieen,$FactorChangePerRound;
     //$score[een][twee]
     $score = array();
@@ -71,7 +72,7 @@ function Start() {
         }elseif($anwser == "4"){
                 $FactorChangePerRound = 1000;
         }elseif($anwser == "5"){
-                $FactorChangePerRound = 10000;
+                $FactorChangePerRound = 3000;
         }
     }
 
@@ -84,8 +85,11 @@ function Start() {
             $max = Count($TotaleScore) * 10000 * 40;
 
             for ($o = 0; $o < Count($TotaleScore); $o++) {
-                $ScoreFactor[$o] += ($TotaleScore[$o] / $max); // (($TotaleScore[$o]/$max)*$FactorChangePerRound);
+                $ScoreFactor[$o] += ($TotaleScore[$o] / $max)+($RandomBonus/Count($score)); // (($TotaleScore[$o]/$max)*$FactorChangePerRound);
             }
+            
+            $ScoreFactor[array_keys($ScoreFactor, max($ScoreFactor))[0]] -= $RandomBonus;
+            
             $FactoredScore2 = GetFactoredScore($score, $ScoreFactor);
             if($Mode == 1){
                 print(Iround($ScoreFactor[0])*1000);
