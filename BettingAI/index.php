@@ -8,8 +8,8 @@ function VoegStrategieToe($PlayerID, $StrategieID) {
     global $Strategieen;
     $Strategieen[Count($Strategieen)] = $PlayerID . "_" . $StrategieID;
 }
-
-//include 'Strategie_7.php';
+ 
+////include 'Strategie_7.php';
 include 'Strategie_6.php';
 include 'Strategie_31.php';
 
