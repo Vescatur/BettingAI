@@ -91,6 +91,6 @@ function SpelerTweeBeurtEen6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
  * return 0 om mee te gaan      Je hebt kans om je $InzetSpelerEen plus $InzetSpelerTwee te winnen of verliezen.
  */
 
-function SpelerEenBeurtTwee6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerTweeBeurtEen){
+function SpelerEenBeurtTwee6_1($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen,$InzetSpelerTweeBeurtEen){
     return 0;
 } 
