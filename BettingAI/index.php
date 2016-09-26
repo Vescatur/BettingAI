@@ -248,6 +248,9 @@ function Battle($StrategieNaam1, $StrategieNaam2, $Random1, $Random2, $Hand1, $H
     $ReturnMove1 = $FuncMove1($Random1);
 
     if ($ReturnMove1 == -1) {
+        print("ERROR: in move 1.\n");
+        print("ERROR: $ReturnMove1 \n");
+        print("ERROR: " . $StrategieNaam1 . " " . $StrategieNaam2 . " " . $Random1 . " " . $Random2 . " " . $Hand1 . " " . $Hand2 . ".\n");
         return 0;
     } elseif (!($ReturnMove1 >= 5 && $ReturnMove1 <= 10)) {
         print("ERROR: in move 1.\n");
@@ -260,6 +263,9 @@ function Battle($StrategieNaam1, $StrategieNaam2, $Random1, $Random2, $Hand1, $H
     $ReturnMove2 = $FuncMove2($Random2, $ReturnMove1);
 
     if ($ReturnMove2 == -1) {
+        print("ERROR: in move 2.\n");
+        print("ERROR: $ReturnMove2 \n");
+        print("ERROR: " . $StrategieNaam1 . " " . $StrategieNaam2 . " " . $Random1 . " " . $Random2 . " " . $Hand1 . " " . $Hand2 . ".\n");
         return 0;
     } elseif (!($ReturnMove2 >= 0 && $ReturnMove2 <= 10)) {
         print("ERROR: in move 2.\n");

@@ -12,11 +12,7 @@ VoegStrategieToe(31,1);
  */
 
 function SpelerEenBeurtNul31_1($RandomGetal) {
-    if($RandomGetal == 5) {
-        return -1;
-    }else{
-        return 5+($RandomGetal/2);
-    }
+    return 5+($RandomGetal/2);
 }
 
 /*
@@ -29,11 +25,7 @@ function SpelerEenBeurtNul31_1($RandomGetal) {
  */
 
 function SpelerTweeBeurtNul31_1($RandomGetal,$InzetSpelerEenBeurtNul) {
-    if($InzetSpelerEenBeurtNul == 10) {
-        return -1;
-    }else {
-       return 10-$InzetSpelerEenBeurtNul;      
-    }
+    return 10-$InzetSpelerEenBeurtNul;      
 }
 
 /*

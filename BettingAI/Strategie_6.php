@@ -12,11 +12,7 @@ VoegStrategieToe(6,2);
  */
 
 function SpelerEenBeurtNul6_2($RandomGetal) {
-    if($RandomGetal == 5) {
-        return -1;
-    }else{
-        return 5+($RandomGetal/2);
-    }
+    return 5+($RandomGetal/2);
 }
 
 /*
@@ -29,11 +25,7 @@ function SpelerEenBeurtNul6_2($RandomGetal) {
  */
 
 function SpelerTweeBeurtNul6_2($RandomGetal,$InzetSpelerEenBeurtNul) {
-    if($InzetSpelerEenBeurtNul == 10) {
-        return -1;
-    }else {
-       return 10-$InzetSpelerEenBeurtNul;      
-    }
+    return 10-$InzetSpelerEenBeurtNul;      
 }
 
 /*
@@ -104,19 +96,11 @@ function SpelerEenBeurtTwee6_2($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
 VoegStrategieToe(6,3);
 
 function SpelerEenBeurtNul6_3($RandomGetal) {
-    if($RandomGetal == 5) {
-        return -1;
-    }else{
-        return 5+($RandomGetal/2);
-    }
+    return 5+($RandomGetal/2);
 }
 
 function SpelerTweeBeurtNul6_3($RandomGetal,$InzetSpelerEenBeurtNul) {
-    if($InzetSpelerEenBeurtNul == 10) {
-        return -1;
-    }else {
-       return 10-$InzetSpelerEenBeurtNul;      
-    }
+    return 10-$InzetSpelerEenBeurtNul;      
 }
 
 function SpelerEenBeurtEen6_3($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
@@ -226,8 +210,7 @@ function SpelerEenBeurtTwee6_5($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
 VoegStrategieToe(6,6);
 
 function SpelerEenBeurtNul6_6($RandomGetal) {
-    return -1;
-    //return 5;
+    return 5;
 }
 
 function SpelerTweeBeurtNul6_6($RandomGetal,$InzetSpelerEenBeurtNul) {
@@ -235,8 +218,8 @@ function SpelerTweeBeurtNul6_6($RandomGetal,$InzetSpelerEenBeurtNul) {
 }
 
 function SpelerEenBeurtEen6_6($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
-    if($Hand >= 7){
-        return 10;
+    if($Hand >= 6){
+        return $Hand;
     }else {
         return -1;
     }
