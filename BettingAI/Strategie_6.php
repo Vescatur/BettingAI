@@ -226,7 +226,8 @@ function SpelerEenBeurtTwee6_5($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
 VoegStrategieToe(6,6);
 
 function SpelerEenBeurtNul6_6($RandomGetal) {
-    return 5;
+    return -1;
+    //return 5;
 }
 
 function SpelerTweeBeurtNul6_6($RandomGetal,$InzetSpelerEenBeurtNul) {
