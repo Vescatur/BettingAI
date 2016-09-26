@@ -72,7 +72,7 @@ function Start() {
         }elseif($anwser == "4"){
                 $FactorChangePerRound = 1000;
         }elseif($anwser == "5"){
-                $FactorChangePerRound = 3000;
+                $FactorChangePerRound = 10000;
         }
     }
 
@@ -120,7 +120,14 @@ function Start() {
                 $FactorChangePerRound = 100;
             }elseif($anwser == "4"){
                 $FactorChangePerRound = 1000;
+            }elseif($anwser == "4"){
+                $FactorChangePerRound = 10000;
             }
+            if($Mode == 2){
+                if($anwser == "a") {
+                    $RandomBonus /= 2;
+                }                
+            }      
         }
     }
 }

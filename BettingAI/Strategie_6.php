@@ -220,3 +220,35 @@ function SpelerEenBeurtTwee6_5($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$Inzet
         return 0;
     } 
 } 
+
+//----------------------------------------------------------------------------\\
+
+VoegStrategieToe(6,6);
+
+function SpelerEenBeurtNul6_6($RandomGetal) {
+    return 5;
+}
+
+function SpelerTweeBeurtNul6_6($RandomGetal,$InzetSpelerEenBeurtNul) {
+    return 1;
+}
+
+function SpelerEenBeurtEen6_6($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul) {
+    if($Hand >= 7){
+        return 10;
+    }else {
+        return -1;
+    }
+}
+
+function SpelerTweeBeurtEen6_6($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen) {
+    if($Hand >= 8){
+        return 10;
+    }else {
+        return -1;
+    }
+}
+
+function SpelerEenBeurtTwee6_6($RandomGetal,$Hand,$InzetSpelerEenBeurtNul,$InzetSpelerTweeBeurtNul,$InzetSpelerEenBeurtEen,$InzetSpelerTweeBeurtEen){
+    return 0;
+} 

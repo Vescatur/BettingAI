@@ -8,7 +8,7 @@ VoegStrategieToe(6,1);
  * $RandomGetal is een random getal van 1 tot en met 10
  * 
  * return -1 om te stoppen                                                      Je verliest dan niks
- * return een getal van 5 tot en met 10 om door te gaan. Dit is je inzet.       Je hebt kans om je inzet te verliezen
+* return een getal van 5 tot en met 10 om door te gaan. Dit is je inzet.       Je hebt kans om je inzet te verliezen
  */
 
 function SpelerEenBeurtNul6_1($RandomGetal) {
