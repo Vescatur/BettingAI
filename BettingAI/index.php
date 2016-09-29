@@ -1,5 +1,5 @@
 <?php
-$Mode = 0;
+$Mode = 1;
 $RandomBonus = 0.01;
 $FactorChangePerRound = 1;
 $Strategieen = array();
